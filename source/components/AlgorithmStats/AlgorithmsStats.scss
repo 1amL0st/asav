@@ -1,0 +1,6 @@
+@import 'styles/base';
+
+.algorithms-stats {
+  @include flex-column(flex-start, center);
+  align-self: flex-start;
+}

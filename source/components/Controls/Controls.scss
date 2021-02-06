@@ -1,0 +1,9 @@
+@import 'styles/base';
+
+.controls {
+  @include flex-column(start, center);
+
+  button {
+    width: 256px;
+  }
+}

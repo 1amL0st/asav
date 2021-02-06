@@ -1,0 +1,13 @@
+@import 'styles/base';
+
+.range-input {
+  @include flex-row(flex-end, center);
+
+  &-title {
+    margin-right: 16px;
+  }
+
+  &-number {
+    max-width: fit-content;
+  }
+}
