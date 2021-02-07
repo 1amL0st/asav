@@ -57,7 +57,10 @@ export const QuickSorter: ISorterConstrucotr = class QuickSorter
     }
 
     await SorterUtils.pickPairOfElements(this, leftPointer, rightPointer);
-    await SorterUtils.swapElements(this, leftPointer, pivotIndex);
+
+    if (leftPointer != pivotIndex) {
+      await SorterUtils.swapElements(this, leftPointer, pivotIndex);  
+    }
 
     return leftPointer;
   }
