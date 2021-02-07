@@ -75,13 +75,22 @@ export class SorterUtils {
     );
   }
 
+  static async swapWithoutComparison(
+    sorter: ISorter,
+    first: number = sorter.i,
+    second: number = sorter.j
+  ): Promise<void> {
+    sorter.callback(SorterAction.Swap);
+    await sorter.arr.swapElements(first, second);
+  }
+
   static async swapElements(
     sorter: ISorter,
     first: number = sorter.i,
     second: number = sorter.j
   ): Promise<void> {
     sorter.callback(SorterAction.Swap);
-    return await sorter.arr.trySwapElements(
+    return await sorter.arr.swapWithHighlight(
       first,
       second,
       sorter.params.delay,

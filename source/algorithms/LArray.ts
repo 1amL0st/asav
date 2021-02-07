@@ -54,22 +54,20 @@ export class LArray {
     });
   }
 
-  async trySwapElements(
+  async swapWithHighlight(
     first: number,
     second: number,
     delay: number,
     callback: () => void
   ): Promise<void> {
-    if (this.ifAnElementGreater(first, second)) {
-      await this.highlightElements(
-        [first, second],
-        'green',
-        'yellow',
-        delay,
-        callback
-      );
-      this.swapElements(first, second);
-    }
+    await this.highlightElements(
+      [first, second],
+      'green',
+      'yellow',
+      delay,
+      callback
+    );
+    this.swapElements(first, second);
     return;
   }
 

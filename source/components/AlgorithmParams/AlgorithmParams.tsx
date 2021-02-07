@@ -25,8 +25,8 @@ export const AlgorithmParams: React.FC = () => {
 
   useEffect(() => {
     // TODO: Remove this code Later
-    Api.algParams.setSortAlgName('Counting sort');
-    Api.algParams.setDelay(100);
+    Api.algParams.setSortAlgName('Heap sort');
+    Api.algParams.setDelay(30);
     onArrSizeInputChange(10);
     Api.arrStore.generateWorstCaseArr();
   }, []);

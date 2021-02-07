@@ -7,6 +7,7 @@ import { CountingSorter } from './CountingSorter';
 import { ISorter, SorterCallback, SorterParams } from '../Base';
 import { LArray } from 'algorithms/LArray';
 import { QuickSorter } from './QuickSorter';
+import { HeapSorter } from './HeapSorter';
 
 export type S = typeof InsertionSorter | typeof SelectionSorter;
 
@@ -18,7 +19,8 @@ export class SortersPool {
       'Selection sort',
       'Buble sort',
       'Merge sort',
-      'Counting sort'
+      'Counting sort',
+      'Heap sort'
     ];
   }
 
@@ -29,6 +31,8 @@ export class SortersPool {
     clb: SorterCallback
   ): ISorter {
     switch (sorterName) {
+      case 'Heap sort':
+        return new HeapSorter(larray, params, clb);
       case 'Counting sort':
         return new CountingSorter(larray, params, clb);
       case 'Merge sort':
