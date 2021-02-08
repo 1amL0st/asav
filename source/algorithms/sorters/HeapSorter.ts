@@ -24,7 +24,7 @@ export const HeapSorter: ISorterConstrucotr = class HeapSorter
     this.j = 0;
   }
 
-  async heapify(n: number, i: number) {
+  private async heapify(n: number, i: number) {
     let largest = i;
     const l = 2 * i + 1;
     const r = 2 * i + 2;
