@@ -8,8 +8,6 @@ import { LArray } from '../LArray';
 
 export const BubbleSorter: ISorterConstrucotr = class BubbleSorter
   implements ISorter {
-  i: number;
-  j: number;
   arr: LArray;
 
   callback: SorterCallback;
@@ -19,8 +17,6 @@ export const BubbleSorter: ISorterConstrucotr = class BubbleSorter
     this.callback = clb;
     this.arr = arr;
     this.params = params;
-    this.i = 0;
-    this.j = 0;
   }
 
   async sort(): Promise<void> {

@@ -25,10 +25,10 @@ export const SelectionSorter: ISorterConstrucotr = class SelectionSorter
   }
 
   async sort(): Promise<void> {
-    for (; this.i < this.arr.size; this.i++) {
-      for (this.j = this.i + 1; this.j < this.arr.size; this.j++) {
-        if (await SorterUtils.cmpElements(this)) {
-          await SorterUtils.swapElements(this);
+    for (let i = 0; i < this.arr.size; i++) {
+      for (let j = i + 1; j < this.arr.size; j++) {
+        if (await SorterUtils.cmpElements(this, i, j)) {
+          await SorterUtils.swapElements(this, i, j);
         }
       }
     }

@@ -8,8 +8,6 @@ import { LArray } from '../LArray';
 
 export const QuickSorter: ISorterConstrucotr = class QuickSorter
   implements ISorter {
-  i: number;
-  j: number;
   arr: LArray;
 
   callback: SorterCallback;
@@ -19,9 +17,6 @@ export const QuickSorter: ISorterConstrucotr = class QuickSorter
     this.callback = clb;
     this.arr = arr;
     this.params = params;
-
-    this.i = 0;
-    this.j = 0;
   }
 
   private async partitions(

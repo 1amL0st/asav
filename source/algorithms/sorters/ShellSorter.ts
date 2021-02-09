@@ -9,8 +9,6 @@ import { LArray } from '../LArray';
 
 export const ShellSorter: ISorterConstrucotr = class ShellSorter
   implements ISorter {
-  i: number;
-  j: number;
   arr: LArray;
 
   callback: SorterCallback;
@@ -20,9 +18,6 @@ export const ShellSorter: ISorterConstrucotr = class ShellSorter
     this.callback = clb;
     this.arr = arr;
     this.params = params;
-
-    this.i = 0;
-    this.j = 0;
   }
 
   private async shellSort(n: number): Promise<void> {

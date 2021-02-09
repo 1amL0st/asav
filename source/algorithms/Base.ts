@@ -20,9 +20,6 @@ export interface ISorter {
 
   arr: LArray;
 
-  i: number;
-  j: number;
-
   sort(): Promise<void>;
 }
 
@@ -50,11 +47,11 @@ export class SorterParams {
 export class SorterUtils {
   static async pickPairOfElements(
     sorter: ISorter,
-    first: number = sorter.i,
-    second: number = sorter.j
+    firstIndex: number,
+    secondIndex: number
   ): Promise<void> {
     return await sorter.arr.highlightElements(
-      [first, second],
+      [firstIndex, secondIndex],
       'red',
       'yellow',
       sorter.params.delay,
@@ -77,22 +74,22 @@ export class SorterUtils {
 
   static async swapWithoutComparison(
     sorter: ISorter,
-    first: number = sorter.i,
-    second: number = sorter.j
+    firstIndex: number,
+    secondIndex: number
   ): Promise<void> {
     sorter.callback(SorterAction.Swap);
-    await sorter.arr.swapElements(first, second);
+    await sorter.arr.swapElements(firstIndex, secondIndex);
   }
 
   static async swapElements(
     sorter: ISorter,
-    first: number = sorter.i,
-    second: number = sorter.j
+    firstIndex: number,
+    secondIndex: number
   ): Promise<void> {
     sorter.callback(SorterAction.Swap);
     return await sorter.arr.swapWithHighlight(
-      first,
-      second,
+      firstIndex,
+      secondIndex,
       sorter.params.delay,
       () => sorter.callback(SorterAction.ArrMutation)
     );
@@ -100,12 +97,12 @@ export class SorterUtils {
 
   static async cmpElements(
     sorter: ISorter,
-    first: number = sorter.i,
-    second: number = sorter.j
+    firstIndex: number,
+    secondIndex: number
   ): Promise<boolean> {
     sorter.callback(SorterAction.Compare);
-    await SorterUtils.pickPairOfElements(sorter, first, second);
-    return sorter.arr.ifAnElementGreater(first, second);
+    await SorterUtils.pickPairOfElements(sorter, firstIndex, secondIndex);
+    return sorter.arr.ifAnElementGreater(firstIndex, secondIndex);
   }
 
   static async ifElementGreaterThan(

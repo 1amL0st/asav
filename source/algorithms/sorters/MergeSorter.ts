@@ -9,8 +9,6 @@ import { LArray } from '../LArray';
 
 export const MergeSorter: ISorterConstrucotr = class MergeSorter
   implements ISorter {
-  i: number;
-  j: number;
   arr: LArray;
 
   callback: SorterCallback;
@@ -20,8 +18,6 @@ export const MergeSorter: ISorterConstrucotr = class MergeSorter
     this.callback = clb;
     this.arr = arr;
     this.params = params;
-    this.i = 0;
-    this.j = 0;
   }
 
   async merge(

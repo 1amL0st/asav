@@ -19,20 +19,18 @@ export const InsertionSorter: ISorterConstrucotr = class InsertionSorter
     this.callback = clb;
     this.arr = arr;
     this.params = params;
-    this.i = 0;
-    this.j = 0;
   }
 
   async sort(): Promise<void> {
-    for (this.i = 1; this.i < this.arr.size; this.i++) {
-      this.j = this.i;
-      await SorterUtils.pickPairOfElements(this);
+    for (let i = 1; i < this.arr.size; i++) {
+      let j = i;
+      await SorterUtils.pickPairOfElements(this, i, j);
       while (
-        this.j > 0 &&
-        (await SorterUtils.cmpElements(this, this.j - 1, this.j))
+        j > 0 &&
+        (await SorterUtils.cmpElements(this, j - 1, j))
       ) {
-        await SorterUtils.swapElements(this, this.j - 1, this.j);
-        this.j -= 1;
+        await SorterUtils.swapElements(this, j - 1, j);
+        j -= 1;
       }
     }
     this.callback(SorterAction.Finish);

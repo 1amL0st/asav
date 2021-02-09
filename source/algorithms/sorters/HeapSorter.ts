@@ -9,8 +9,6 @@ import { LArray } from '../LArray';
 
 export const HeapSorter: ISorterConstrucotr = class HeapSorter
   implements ISorter {
-  i: number;
-  j: number;
   arr: LArray;
 
   callback: SorterCallback;
@@ -20,8 +18,6 @@ export const HeapSorter: ISorterConstrucotr = class HeapSorter
     this.callback = clb;
     this.arr = arr;
     this.params = params;
-    this.i = 0;
-    this.j = 0;
   }
 
   private async heapify(n: number, i: number) {
