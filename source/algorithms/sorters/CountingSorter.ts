@@ -34,7 +34,7 @@ export const CountingSorter: ISorterConstrucotr = class CountingSorter
     for (let i = 0; i < this.arr.size; ++i) {
       await SorterUtils.pickElements(this, [i]);
       this.callback(SorterAction.Pick);
-      
+
       const el = this.arr.elements[i];
       const subArr = counters[el.value - 1];
       if (subArr === null) {
@@ -47,7 +47,7 @@ export const CountingSorter: ISorterConstrucotr = class CountingSorter
     for (let i = 0; i < this.arr.size; ++i) {
       const subArr = counters[i];
       if (subArr !== null) {
-        subArr.forEach(el => elements.push(el));
+        subArr.forEach((el) => elements.push(el));
       }
     }
 

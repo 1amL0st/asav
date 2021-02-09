@@ -29,11 +29,11 @@ export const HeapSorter: ISorterConstrucotr = class HeapSorter
     const l = 2 * i + 1;
     const r = 2 * i + 2;
 
-    if (l < n && await SorterUtils.cmpElements(this, l, largest)) {
+    if (l < n && (await SorterUtils.cmpElements(this, l, largest))) {
       largest = l;
     }
 
-    if (r < n && await SorterUtils.cmpElements(this, r, largest)) {
+    if (r < n && (await SorterUtils.cmpElements(this, r, largest))) {
       largest = r;
     }
 
@@ -45,7 +45,7 @@ export const HeapSorter: ISorterConstrucotr = class HeapSorter
 
   async sort(): Promise<void> {
     for (let i = this.arr.size / 2 - 1; i >= 0; i--) {
-      await this.heapify(this.arr.size, i)
+      await this.heapify(this.arr.size, i);
     }
 
     for (let i = this.arr.size - 1; i > 0; i--) {

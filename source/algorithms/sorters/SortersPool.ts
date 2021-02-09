@@ -3,6 +3,7 @@ import { SelectionSorter } from './SelectionSorter';
 import { BubbleSorter } from './BubbleSorter';
 import { MergeSorter } from './MergeSorter';
 import { CountingSorter } from './CountingSorter';
+import { ShellSorter } from './ShellSorter';
 
 import { ISorter, SorterCallback, SorterParams } from '../Base';
 import { LArray } from 'algorithms/LArray';
@@ -20,7 +21,8 @@ export class SortersPool {
       'Buble sort',
       'Merge sort',
       'Counting sort',
-      'Heap sort'
+      'Heap sort',
+      'Shell sort',
     ];
   }
 
@@ -31,6 +33,8 @@ export class SortersPool {
     clb: SorterCallback
   ): ISorter {
     switch (sorterName) {
+      case 'Shell sort':
+        return new ShellSorter(larray, params, clb);
       case 'Heap sort':
         return new HeapSorter(larray, params, clb);
       case 'Counting sort':

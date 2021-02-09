@@ -26,14 +26,11 @@ export const App: React.FC = () => {
     const onSorterIteration = (action: SorterAction) => {
       if (action == SorterAction.Swap) {
         Api.algStats.incrementSwaps();
-      }
-      else if (action == SorterAction.Pick) {
+      } else if (action == SorterAction.Pick) {
         Api.algStats.incrementIterations();
-      }
-      else if (action == SorterAction.Compare) {
+      } else if (action == SorterAction.Compare) {
         Api.algStats.incrementComparisons();
-      }
-      else if (action == SorterAction.Finish) {
+      } else if (action == SorterAction.Finish) {
         Api.arrStore.setSortStage(SortStage.Finished);
       }
       Api.arrStore.setElements([...arr.elements]);
