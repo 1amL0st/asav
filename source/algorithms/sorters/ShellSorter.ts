@@ -4,7 +4,6 @@ import {ISorterConstrucotr,
   SorterAction,
   SorterParams,
   SorterUtils,
-  LElement,
   IAlgorithmDescription,} from '../Base';
 import { LArray } from '../LArray';
 

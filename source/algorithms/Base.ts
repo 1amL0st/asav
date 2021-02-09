@@ -1,4 +1,3 @@
-import { IAlgParamsStore } from 'reducers/AlgParamsReducers';
 import { LArray } from './LArray';
 
 export enum SorterAction {

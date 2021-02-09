@@ -25,9 +25,9 @@ export const MergeSorter: ISorterConstrucotr = class MergeSorter
     left: Array<LElement>,
     right: Array<LElement>
   ): Promise<Array<LElement>> {
-    let resultArray = [],
-      leftIndex = 0,
-      rightIndex = 0;
+    const resultArray = [];
+    let leftIndex = 0;
+    let rightIndex = 0;
 
     while (leftIndex < left.length && rightIndex < right.length) {
       const leftId = left[leftIndex].id;

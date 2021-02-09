@@ -5,7 +5,7 @@ import { MergeSorter } from './MergeSorter';
 import { CountingSorter } from './CountingSorter';
 import { ShellSorter } from './ShellSorter';
 
-import { IAlgorithmDescription, ISorter, SorterAction, SorterCallback, SorterParams } from '../Base';
+import { IAlgorithmDescription, ISorter, SorterCallback, SorterParams } from '../Base';
 import { LArray } from 'algorithms/LArray';
 import { QuickSorter } from './QuickSorter';
 import { HeapSorter } from './HeapSorter';
@@ -57,7 +57,9 @@ export class SortersPool {
   static getSorterDescriptions(): Array<IAlgorithmDescription> {
     const params = new SorterParams();
     const arr = new LArray(0);
-    const clb = (s: SorterAction) => {};
+    const clb = () => {
+      return 0
+    }
 
     return SortersPool.getSortersNames().map((sorterName) => {
       return SortersPool.getSorterByName(sorterName, params, arr, clb).getDescription()
