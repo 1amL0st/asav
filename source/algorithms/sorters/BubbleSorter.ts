@@ -3,7 +3,8 @@ import {ISorterConstrucotr,
   SorterCallback,
   SorterAction,
   SorterParams,
-  SorterUtils,} from '../Base';
+  SorterUtils,
+  IAlgorithmDescription,} from '../Base';
 import { LArray } from '../LArray';
 
 export const BubbleSorter: ISorterConstrucotr = class BubbleSorter
@@ -32,5 +33,15 @@ export const BubbleSorter: ISorterConstrucotr = class BubbleSorter
     }
     this.callback(SorterAction.Finish);
     return;
+  }
+
+  getDescription(): IAlgorithmDescription {
+    return {
+      name: 'Bubble sort',
+      best: 'n',
+      average: 'n^2',
+      worst: 'n^2',
+      memory: '1'
+    };
   }
 };

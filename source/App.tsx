@@ -10,6 +10,7 @@ import { SortersPool } from 'algorithms/sorters/SortersPool';
 
 import './App.scss';
 import { SortStage } from 'actions/ArrayActions';
+import { ComparisonTable } from 'components/ComparisonTable/ComparisonTable';
 
 export const App: React.FC = () => {
   const algParams = Api.algParams.useAlgParams();
@@ -37,8 +38,8 @@ export const App: React.FC = () => {
     };
 
     const sorter = SortersPool.getSorterByName(
-      algParams.sorterParams,
       algParams.sortAlgName,
+      algParams.sorterParams,
       arr,
       onSorterIteration
     );
@@ -58,6 +59,7 @@ export const App: React.FC = () => {
       <main className="main">
         <Viewport arr={arrayStore.elements} />
       </main>
+      <ComparisonTable descs={SortersPool.getSorterDescriptions()} />
     </div>
   );
 };

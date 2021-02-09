@@ -4,7 +4,8 @@ import {ISorterConstrucotr,
   SorterAction,
   SorterParams,
   SorterUtils,
-  LElement,} from '../Base';
+  LElement,
+  IAlgorithmDescription,} from '../Base';
 import { LArray } from '../LArray';
 
 export const CountingSorter: ISorterConstrucotr = class CountingSorter
@@ -51,5 +52,15 @@ export const CountingSorter: ISorterConstrucotr = class CountingSorter
 
     this.callback(SorterAction.Finish);
     return;
+  }
+
+  getDescription(): IAlgorithmDescription {
+    return {
+      name: 'Counting sort',
+      best: 'n + r',
+      average: 'n + r',
+      worst: 'n + r',
+      memory: 'n + r'
+    };
   }
 };

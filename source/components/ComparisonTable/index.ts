@@ -1,0 +1,1 @@
+import { ComparisonTable } from './ComparisonTable';

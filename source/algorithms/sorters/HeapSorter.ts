@@ -4,7 +4,8 @@ import {ISorterConstrucotr,
   SorterAction,
   SorterParams,
   SorterUtils,
-  LElement,} from '../Base';
+  LElement,
+  IAlgorithmDescription,} from '../Base';
 import { LArray } from '../LArray';
 
 export const HeapSorter: ISorterConstrucotr = class HeapSorter
@@ -51,5 +52,15 @@ export const HeapSorter: ISorterConstrucotr = class HeapSorter
 
     this.callback(SorterAction.Finish);
     return;
+  }
+
+  getDescription(): IAlgorithmDescription {
+    return {
+      name: 'Heap sort',
+      best: 'n log n',
+      average: 'n log n',
+      worst: 'n log n',
+      memory: '1'
+    };
   }
 };

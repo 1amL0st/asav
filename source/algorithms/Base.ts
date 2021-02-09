@@ -1,3 +1,4 @@
+import { IAlgParamsStore } from 'reducers/AlgParamsReducers';
 import { LArray } from './LArray';
 
 export enum SorterAction {
@@ -14,6 +15,14 @@ export interface ISorterConstrucotr {
   new (arr: LArray, params: SorterParams, clb: SorterCallback): ISorter;
 }
 
+export interface IAlgorithmDescription {
+  name: string,
+  best: string,
+  average: string,
+  worst: string,
+  memory: string
+}
+
 export interface ISorter {
   params: SorterParams;
   callback: SorterCallback;
@@ -21,6 +30,7 @@ export interface ISorter {
   arr: LArray;
 
   sort(): Promise<void>;
+  getDescription(): IAlgorithmDescription
 }
 
 export class LElement {

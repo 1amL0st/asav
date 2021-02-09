@@ -4,7 +4,8 @@ import {ISorterConstrucotr,
   SorterAction,
   SorterParams,
   SorterUtils,
-  LElement,} from '../Base';
+  LElement,
+  IAlgorithmDescription,} from '../Base';
 import { LArray } from '../LArray';
 
 export const ShellSorter: ISorterConstrucotr = class ShellSorter
@@ -44,5 +45,15 @@ export const ShellSorter: ISorterConstrucotr = class ShellSorter
     await this.shellSort(this.arr.size);
     this.callback(SorterAction.Finish);
     return;
+  }
+
+  getDescription(): IAlgorithmDescription {
+    return {
+      name: 'Shell sort',
+      best: 'n log n',
+      average: 'n^(4/3)',
+      worst: 'n^(3/2)',
+      memory: '1'
+    };
   }
 };

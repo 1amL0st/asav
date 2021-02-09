@@ -3,7 +3,8 @@ import {ISorterConstrucotr,
   SorterCallback,
   SorterAction,
   SorterParams,
-  SorterUtils,} from '../Base';
+  SorterUtils,
+  IAlgorithmDescription,} from '../Base';
 import { LArray } from '../LArray';
 
 export const QuickSorter: ISorterConstrucotr = class QuickSorter
@@ -72,5 +73,15 @@ export const QuickSorter: ISorterConstrucotr = class QuickSorter
     await this.quickSort(0, this.arr.size - 1);
     this.callback(SorterAction.Finish);
     return;
+  }
+
+  getDescription(): IAlgorithmDescription {
+    return {
+      name: 'Quick sort',
+      best: 'n log n',
+      average: 'n log n',
+      worst: 'n^2',
+      memory: 'log n'
+    };
   }
 };

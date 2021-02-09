@@ -5,7 +5,7 @@ import { MergeSorter } from './MergeSorter';
 import { CountingSorter } from './CountingSorter';
 import { ShellSorter } from './ShellSorter';
 
-import { ISorter, SorterCallback, SorterParams } from '../Base';
+import { IAlgorithmDescription, ISorter, SorterAction, SorterCallback, SorterParams } from '../Base';
 import { LArray } from 'algorithms/LArray';
 import { QuickSorter } from './QuickSorter';
 import { HeapSorter } from './HeapSorter';
@@ -18,7 +18,7 @@ export class SortersPool {
       'Quick sort',
       'Insertion sort',
       'Selection sort',
-      'Buble sort',
+      'Bubble sort',
       'Merge sort',
       'Counting sort',
       'Heap sort',
@@ -27,8 +27,8 @@ export class SortersPool {
   }
 
   static getSorterByName(
-    params: SorterParams,
     sorterName: string,
+    params: SorterParams,
     larray: LArray,
     clb: SorterCallback
   ): ISorter {
@@ -47,10 +47,20 @@ export class SortersPool {
         return new SelectionSorter(larray, params, clb);
       case 'Quick sort':
         return new QuickSorter(larray, params, clb);
-      case 'Buble sort':
+      case 'Bubble sort':
         return new BubbleSorter(larray, params, clb);
       default:
         throw Error('Wrong sort algorithm name!');
     }
+  }
+
+  static getSorterDescriptions(): Array<IAlgorithmDescription> {
+    const params = new SorterParams();
+    const arr = new LArray(0);
+    const clb = (s: SorterAction) => {};
+
+    return SortersPool.getSortersNames().map((sorterName) => {
+      return SortersPool.getSorterByName(sorterName, params, arr, clb).getDescription()
+    });
   }
 }

@@ -3,7 +3,8 @@ import {ISorterConstrucotr,
   SorterCallback,
   SorterAction,
   SorterParams,
-  SorterUtils,} from '../Base';
+  SorterUtils,
+  IAlgorithmDescription,} from '../Base';
 import { LArray } from '../LArray';
 
 export const SelectionSorter: ISorterConstrucotr = class SelectionSorter
@@ -34,5 +35,15 @@ export const SelectionSorter: ISorterConstrucotr = class SelectionSorter
     }
     this.callback(SorterAction.Finish);
     return;
+  }
+
+  getDescription(): IAlgorithmDescription {
+    return {
+      name: 'Selection sort',
+      best: 'n^2',
+      average: 'n^2',
+      worst: 'n^2',
+      memory: '1'
+    };
   }
 };

@@ -4,7 +4,8 @@ import {ISorterConstrucotr,
   SorterAction,
   SorterParams,
   SorterUtils,
-  LElement,} from '../Base';
+  LElement,
+  IAlgorithmDescription,} from '../Base';
 import { LArray } from '../LArray';
 
 export const MergeSorter: ISorterConstrucotr = class MergeSorter
@@ -64,5 +65,15 @@ export const MergeSorter: ISorterConstrucotr = class MergeSorter
     this.arr.elements = await this.mergeSort(this.arr.elements);
     this.callback(SorterAction.Finish);
     return;
+  }
+
+  getDescription(): IAlgorithmDescription {
+    return {
+      name: 'Merge sort',
+      best: 'n log n',
+      average: 'n log n',
+      worst: 'n log n',
+      memory: 'n'
+    };
   }
 };
