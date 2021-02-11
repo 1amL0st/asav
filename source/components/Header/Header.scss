@@ -1,9 +1,0 @@
-@import 'styles/base';
-
-.header {
-  @include flex-row(space-between, start);
-
-  box-sizing: border-box;
-  width: 100%;
-  padding: 16px;
-}
